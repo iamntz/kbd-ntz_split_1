@@ -31,11 +31,14 @@ enum custom_keycodes {
     MK_S = MT(MOD_LALT, KC_S),
     MK_D = MT(MOD_LSFT, KC_D),
     MK_F = MT(MOD_LCTL, KC_F),
+    MK_G = MT(MOD_LGUI, KC_F),
 
+    MK_H = MT(MOD_RGUI, KC_H),
     MK_J = MT(MOD_RCTL, KC_J),
     MK_K = MT(MOD_RSFT, KC_K),
     MK_L = MT(MOD_LALT, KC_L),
 
+    MK_N = MT(MOD_RALT, KC_N),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -45,9 +48,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
      KC_GRAVE, KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,                               KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,    KC_MINUS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
-     KC_LSFT,  KC_A,    MK_S,    MK_D,   MK_F,    KC_G,                               KC_H,   MK_J,    MK_K,    MK_L,   LL_NAV,  KC_QUOT,
+     KC_LSFT,  KC_A,    MK_S,    MK_D,   MK_F,    MK_G,                               MK_H,   MK_J,    MK_K,    MK_L,   LL_NAV,  KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼                          ┼────────┼────────┼────────┼────────┼─────────┼───────────┤
-     _MD_L1,   KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,                               KC_N,   KC_M,   KC_COMM, KC_DOT, KC_SLASH,    _MD_R1,
+     _MD_L1,   KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,                               MK_N,   KC_M,   KC_COMM, KC_DOT, KC_SLASH,    _MD_R1,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴                          ┴───┬────┴───┬────┴───┬────┴────────┴─────────┴───────────┘
                                 _MD_L2, _MD_L3, _MD_L4, _MD_L5,                _MD_R5 , _MD_R4, _MD_R3, _MD_R2
   ),
