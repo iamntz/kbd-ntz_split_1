@@ -36,4 +36,5 @@ Copy the `.build/*.uf2` file to the RPI.
 
 ### Stuff
 
-- https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes_basic.md
+- [Keycodes](https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes_basic.md)
+- [Home Row Mods](https://precondition.github.io/home-row-mods)

@@ -13,20 +13,29 @@
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
 
-    MOD_L1 = KC_LCTL,
-    MOD_L2 = KC_LEFT_BRACKET,
-    MOD_L3 = KC_RIGHT_BRACKET,
-    MOD_L4 = LSFT_T(KC_SPC),
-    MOD_L5 = LT(_MEDIA, KC_BACKSPACE),
+    _MD_L1 = KC_LCTL,
+
+    _MD_L2 = KC_LEFT_GUI,
+    _MD_L3 = KC_TAB,
+    _MD_L4 = LALT_T(KC_SPC),
+    _MD_L5 = LT(_MEDIA, KC_BACKSPACE),
+
+    _MD_R1=KC_RIGHT_GUI,
+    _MD_R2=KC_SEMICOLON,
+    _MD_R3=KC_BACKSPACE,
+    _MD_R4=LT(_SYMBOLS_1,KC_ENT),
+    _MD_R5=KC_BACKSPACE,
 
     LL_NAV = LT(_NAV, KC_SCLN),
 
-    MOD_R1=KC_BACKSLASH,
+    MK_S = MT(MOD_LALT, KC_S),
+    MK_D = MT(MOD_LSFT, KC_D),
+    MK_F = MT(MOD_LCTL, KC_F),
 
-    MOD_R2=KC_SEMICOLON,
-    MOD_R3=KC_RIGHT_GUI,
-    MOD_R4=LT(_SYMBOLS_1,KC_ENT),
-    MOD_R5=KC_BACKSPACE,
+    MK_J = MT(MOD_RCTL, KC_J),
+    MK_K = MT(MOD_RSFT, KC_K),
+    MK_L = MT(MOD_LALT, KC_L),
+
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -36,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
      KC_GRAVE, KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,                               KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,    KC_MINUS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
-     KC_LSFT,  KC_A,    KC_S,    KC_D,   KC_F,    KC_G,                               KC_H,   KC_J,    KC_K,    KC_L,   LL_NAV,  KC_QUOT,
+     KC_LSFT,  KC_A,    MK_S,    MK_D,   MK_F,    KC_G,                               KC_H,   MK_J,    MK_K,    MK_L,   LL_NAV,  KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼                          ┼────────┼────────┼────────┼────────┼─────────┼───────────┤
-     MOD_L1,   KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,                               KC_N,   KC_M,   KC_COMM, KC_DOT, KC_SLASH,    MOD_R1,
+     _MD_L1,   KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,                               KC_N,   KC_M,   KC_COMM, KC_DOT, KC_SLASH,    _MD_R1,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴                          ┴───┬────┴───┬────┴───┬────┴────────┴─────────┴───────────┘
-                                MOD_L2, MOD_L3, MOD_L4, MOD_L5,                MOD_R5 , MOD_R4, MOD_R3, MOD_R2
+                                _MD_L2, _MD_L3, _MD_L4, _MD_L5,                _MD_R5 , _MD_R4, _MD_R3, _MD_R2
   ),
 
   [_SYMBOLS_1]  = LAYOUT(
@@ -51,22 +60,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
      KC_LSFT, KC_EXLM,  KC_AT,  KC_HASH, KC_DLR, KC_PERC,                           KC_CIRC,  KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,  KC_MINS,
   //├────────┼────────┼────────┼────────┼────────┼────────┼                          ┼────────┼────────┼────────┼────────┼─────────┼───────────┤
-      MOD_L1,   KC_NO,   KC_NO,   KC_NO,  KC_NO,   KC_NO,                             KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,    MOD_R1,
+      _MD_L1, KC_LBRC, KC_RBRC, KC_LT,  KC_GT,   KC_BSLS,                            KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,    _MD_R1,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴                          ┴───┬────┴───┬────┴───┬────┴────────┴─────────┴───────────┘
-                                MOD_L2, MOD_L3, MOD_L4, MOD_L5,                  MOD_R5 , MOD_R4, MOD_R3, MOD_R2
+                                _MD_L2, _MD_L3, _MD_L4, _MD_L5,                  _MD_R5 , _MD_R4, _MD_R3, _MD_R2
   ),
 
   [_NAV]  = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬─────────┬───────────┐
-      KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,                             KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+     KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS,  QK_BOOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
-      KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_NO,   KC_NO,
+     KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS, KC_HOME, KC_PGDN,KC_PGUP, KC_END,  KC_TRNS,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼─────────┼───────────┤
-      KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,                            KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT, LL_NAV,   KC_NO,
+     KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                            KC_LEFT, KC_DOWN,  KC_UP, KC_RIGHT, LL_NAV,   KC_TRNS,
   //├────────┼────────┼────────┼────────┼────────┼────────┼                          ┼────────┼────────┼────────┼────────┼─────────┼───────────┤
-      KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,   KC_NO,                             KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+     KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                            KC_TRNS, KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴                          ┴───┬────┴───┬────┴───┬────┴────────┴─────────┴───────────┘
-                                    KC_NO, KC_NO, KC_NO, KC_NO,                KC_NO, KC_NO, KC_NO, KC_NO
+                            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 
 
